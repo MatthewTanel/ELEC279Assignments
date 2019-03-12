@@ -3,7 +3,7 @@ package assignment1;
 public abstract class Entity {
 	private String name;
 	private Date born;
-		private double difficulty;
+	private double difficulty;
 	
 	public Entity(String name, Date birthDate) {
 		this.name = name;
@@ -28,20 +28,20 @@ public abstract class Entity {
 	}
 	
 	
-		public int getAwardedTicketNumber() {
-			return (int)difficulty*100;
+	public int getAwardedTicketNumber() {
+		return (int)difficulty*100;
 	}
+	
+	public abstract String entityType(); 
 		
-		public abstract String entityType(); 
-			
-		public abstract Entity clone(); 
-		
-		public String welcomeMessage() {
-			return "Welcome! Let's start the game!" + Entity.entityType();
-		}
-		public String closingMessage() {
-			return "Congratulations! The detailed information of the entity you guess is:" + toString();
-		}
+	public abstract Entity clone(); 
+	
+	public String welcomeMessage() {
+		return "Welcome! Let's start the game! This entity is a " + this.entityType();
+	}
+	public String closingMessage() {
+		return "Congratulations! The detailed information of the entity you guess is:" + this.toString();
+	}
 		
 		
 		
