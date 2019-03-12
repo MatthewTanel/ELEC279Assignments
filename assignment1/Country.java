@@ -1,32 +1,37 @@
+//Matthew Tanel
+//16mdt
+//20030711
 package assignment1;
 
 public class Country extends Entity {
-private String capital;
+	private String capital;
 
-public Country(String name, Date birthDate) {
-	super(name, birthDate);
-	
-}
+	public Country(String name, Date birthDate, String capital, double difficulty) {
+		super(name, birthDate, difficulty);
+		this.capital = capital;
+	}
 
-public Country(Country country) {
-	super(country);
-}
+	public Country(Country country) {
+		super(country);
+		capital = country.getCapital();
+	}
 
-@Override
-public String entityType() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	public String getCapital() {
+		return capital;
+	}
 
-@Override
-public Entity clone() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	public Country clone() {
+		return new Country(this);
+	}
 
-public Country clone() {
-	
-}
+	@Override
+	public String toString() {
+		return super.toString() + "Capital: " + capital;
+	}
 
+	@Override
+	public String entityType() {
+		return "This entity is a country!";
+	}
 
 }
